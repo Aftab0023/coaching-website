@@ -1,10 +1,32 @@
 const contactItems = [
   ["Phone", "+91 78879 46323"],
-  ["Email", "admissions@brightfutureacademy.in"],
+  ["Email", "aftab.tamboli.23@gmail.com"],
   ["Address", "2nd Floor, Sunrise Plaza, MG Road, Pune, Maharashtra"],
 ];
 
 export default function Contact() {
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    const formData = new FormData(event.currentTarget);
+    const details = [
+      ["Student name", formData.get("student_name")],
+      ["Phone number", formData.get("phone")],
+      ["Email address", formData.get("email")],
+      ["Course", formData.get("course")],
+      ["Message", formData.get("message")],
+    ]
+      .filter(([, value]) => value)
+      .map(([label, value]) => `${label}: ${value}`)
+      .join("\n");
+
+    const subject = encodeURIComponent("New coaching enquiry");
+    const body = encodeURIComponent(details);
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=aftab.tamboli.23@gmail.com&su=${subject}&body=${body}`;
+
+    window.open(gmailUrl, "_blank", "noopener,noreferrer");
+  }
+
   return (
     <section id="contact" className="bg-white px-4 py-20 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
@@ -33,7 +55,7 @@ export default function Contact() {
             </div>
 
             <a
-              href="https://wa.me/919876543210"
+              href="https://wa.me/917887946323"
               target="_blank"
               rel="noreferrer"
               className="mt-6 inline-flex rounded-lg bg-green-500 px-6 py-3 font-black text-white transition hover:-translate-y-0.5 hover:bg-green-600"
@@ -43,19 +65,22 @@ export default function Contact() {
           </div>
 
           <div className="rounded-[2rem] border border-orange-100 bg-amber-50 p-5">
-            <form className="grid gap-4 sm:grid-cols-2">
-              <input className="rounded-xl border border-orange-100 bg-white px-4 py-3 outline-none transition focus:border-orange-500 focus:ring-4 focus:ring-orange-100" placeholder="Student name" />
-              <input className="rounded-xl border border-orange-100 bg-white px-4 py-3 outline-none transition focus:border-orange-500 focus:ring-4 focus:ring-orange-100" placeholder="Phone number" />
-              <input className="rounded-xl border border-orange-100 bg-white px-4 py-3 outline-none transition focus:border-orange-500 focus:ring-4 focus:ring-orange-100" placeholder="Email address" />
-              <select className="rounded-xl border border-orange-100 bg-white px-4 py-3 text-slate-500 outline-none transition focus:border-orange-500 focus:ring-4 focus:ring-orange-100">
-                <option>Select course</option>
+            <form
+              onSubmit={handleSubmit}
+              className="grid gap-4 sm:grid-cols-2"
+            >
+              <input className="rounded-xl border border-orange-100 bg-white px-4 py-3 outline-none transition focus:border-orange-500 focus:ring-4 focus:ring-orange-100" name="student_name" placeholder="Student name" required />
+              <input className="rounded-xl border border-orange-100 bg-white px-4 py-3 outline-none transition focus:border-orange-500 focus:ring-4 focus:ring-orange-100" name="phone" placeholder="Phone number" required />
+              <input className="rounded-xl border border-orange-100 bg-white px-4 py-3 outline-none transition focus:border-orange-500 focus:ring-4 focus:ring-orange-100" name="email" placeholder="Email address" type="email" />
+              <select className="rounded-xl border border-orange-100 bg-white px-4 py-3 text-slate-500 outline-none transition focus:border-orange-500 focus:ring-4 focus:ring-orange-100" name="course" defaultValue="">
+                <option value="" disabled>Select course</option>
                 <option>JEE Coaching</option>
                 <option>NEET Coaching</option>
                 <option>10th / 12th Boards</option>
                 <option>Computer Courses</option>
               </select>
-              <textarea className="min-h-32 rounded-xl border border-orange-100 bg-white px-4 py-3 outline-none transition focus:border-orange-500 focus:ring-4 focus:ring-orange-100 sm:col-span-2" placeholder="Message" />
-              <button className="rounded-full bg-gradient-to-r from-orange-500 to-red-600 px-7 py-4 font-black text-white transition hover:-translate-y-0.5 sm:col-span-2">
+              <textarea className="min-h-32 rounded-xl border border-orange-100 bg-white px-4 py-3 outline-none transition focus:border-orange-500 focus:ring-4 focus:ring-orange-100 sm:col-span-2" name="message" placeholder="Message" />
+              <button className="rounded-full bg-gradient-to-r from-orange-500 to-red-600 px-7 py-4 font-black text-white transition hover:-translate-y-0.5 sm:col-span-2" type="submit">
                 Submit Enquiry
               </button>
             </form>

@@ -13,14 +13,14 @@ export default function Navbar() {
         <div className="mx-auto flex max-w-7xl items-center justify-between">
           <p className="font-semibold">Admission Open 2026 | Free Demo Class | Scholarship Test Every Sunday</p>
           <div className="flex gap-6 text-slate-300">
-            <a href="tel:+919876543210" className="hover:text-white">
+            <a href="tel:+917887946323" className="hover:text-white">
               +91 78879 46323
             </a>
             <a
-              href="mailto:admissions@brightfutureacademy.in"
+              href="mailto:aftab.tamboli.23@gmail.com"
               className="hover:text-white"
             >
-              admissions@brightfutureacademy.in
+              aftab.tamboli.23@gmail.com
             </a>
           </div>
         </div>
