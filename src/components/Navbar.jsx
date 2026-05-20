@@ -8,8 +8,8 @@ const navLinks = [
 
 export default function Navbar() {
   return (
-    <header className="sticky top-0 z-50 border-b border-orange-100 bg-white/95 backdrop-blur">
-      <div className="hidden bg-gradient-to-r from-orange-600 via-rose-600 to-blue-800 px-4 py-2 text-sm text-white lg:block">
+    <header className="sticky top-0 z-50 border-b border-[#eadcc8] bg-white/95 backdrop-blur">
+      <div className="hidden bg-[#14345c] px-4 py-2 text-sm text-white lg:block">
         <div className="mx-auto flex max-w-7xl items-center justify-between">
           <p className="font-semibold">Admission Open 2026 | Free Demo Class | Scholarship Test Every Sunday</p>
           <div className="flex gap-6 text-slate-300">
@@ -27,15 +27,17 @@ export default function Navbar() {
       </div>
 
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-        <a href="#" className="flex items-center gap-3">
-          <span className="grid h-12 w-12 place-items-center rounded-full bg-gradient-to-br from-orange-500 to-red-600 text-base font-black text-white shadow-lg shadow-orange-200">
-            BF
-          </span>
-          <span>
-            <span className="block text-lg font-black tracking-tight text-slate-950 sm:text-xl">
+        <a href="#" className="flex min-w-0 items-center gap-3">
+          <img
+            src="/logo.svg"
+            alt="Bright Future Academy"
+            className="h-11 w-11 shrink-0 rounded-full shadow-lg shadow-[#14345c]/15 sm:h-12 sm:w-12"
+          />
+          <span className="min-w-0">
+            <span className="block truncate text-base font-black tracking-tight text-[#10233f] sm:text-xl">
               Bright Future Academy
             </span>
-            <span className="block text-xs font-bold text-orange-600">
+            <span className="block truncate text-xs font-bold text-[#a55d19]">
               JEE | NEET | Boards | Computer Classes
             </span>
           </span>
@@ -46,7 +48,7 @@ export default function Navbar() {
             <a
               key={link.label}
               href={link.href}
-              className="text-sm font-bold text-slate-600 transition hover:text-orange-600"
+              className="text-sm font-bold text-slate-600 transition hover:text-[#a55d19]"
             >
               {link.label}
             </a>
@@ -55,7 +57,7 @@ export default function Navbar() {
 
         <a
           href="#contact"
-          className="rounded-full bg-gradient-to-r from-orange-500 to-red-600 px-5 py-2.5 text-sm font-bold text-white shadow-md shadow-orange-200 transition hover:-translate-y-0.5"
+          className="ml-3 shrink-0 rounded-full bg-[#c98d2f] px-4 py-2.5 text-sm font-bold text-white shadow-md shadow-[#c98d2f]/25 transition hover:-translate-y-0.5 hover:bg-[#a55d19] sm:px-5"
         >
           Join Now
         </a>

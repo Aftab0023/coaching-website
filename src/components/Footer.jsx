@@ -10,13 +10,15 @@ const socials = ["Facebook", "Instagram", "YouTube", "LinkedIn"];
 
 export default function Footer() {
   return (
-    <footer className="bg-slate-950 px-4 py-12 text-white sm:px-6 lg:px-8">
+    <footer className="bg-[#10233f] px-4 py-12 text-white sm:px-6 lg:px-8">
       <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-[1.3fr_0.8fr_0.9fr]">
         <div>
           <div className="flex items-center gap-3">
-            <span className="grid h-11 w-11 place-items-center rounded-full bg-gradient-to-br from-orange-500 to-red-600 font-black">
-              BF
-            </span>
+            <img
+              src="/logo.svg"
+              alt="Bright Future Academy"
+              className="h-11 w-11 rounded-full"
+            />
             <h2 className="text-2xl font-black">Bright Future Academy</h2>
           </div>
           <p className="mt-5 max-w-md leading-7 text-slate-300">
@@ -43,7 +45,7 @@ export default function Footer() {
               <a
                 key={social}
                 href="#"
-                className="rounded-full border border-white/10 px-4 py-2 text-sm font-bold text-slate-300 transition hover:border-orange-400 hover:text-white"
+                className="rounded-full border border-white/10 px-4 py-2 text-sm font-bold text-slate-300 transition hover:border-[#f7d99d] hover:text-white"
               >
                 {social}
               </a>
